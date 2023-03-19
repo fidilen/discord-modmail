@@ -1,0 +1,23 @@
+{
+    "guild_id": "",
+    "commands": [
+        {
+            "name": "reply",
+            "description": "Reply to the user.",
+            "dm_permission": false,
+            "options": [
+                {
+                  "type": 3,
+                  "name": "content",
+                  "description": "Content of the reply.",
+                  "required": true
+                }
+              ]
+        },
+        {
+            "name": "close",
+            "description": "Close the ticket.",
+            "dm_permission": false
+        }
+    ]
+}

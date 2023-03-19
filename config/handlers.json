@@ -1,0 +1,9 @@
+{
+    "MESSAGE_CREATE": {
+        "DM": "/functions/message/dm/bot-dm.js"
+    },
+    "APPLICATION_COMMAND": {
+        "reply": "/functions/command/reply.js",
+        "close": "/functions/command/close.js"
+    }
+}
