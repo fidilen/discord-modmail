@@ -8,17 +8,17 @@ module.exports = async (event, client, utils) => {
     let thread = tickets_channel.threads?.cache?.find(t => t.name.includes(user.id) && !t.locked);
 
     try {
-        let content = `**${user.username}#${user.discriminator}** : ${event.content}`;
+        let content = `**@${user.username}** : ${event.content}`;
 
         if (!thread) {
             thread = await tickets_channel.threads.create({
-                name: `${user.username}#${user.discriminator} - ${thread_reference}`,
+                name: `@${user.username} - ${thread_reference}`,
                 autoArchiveDuration: 1440,
                 type: 11,
-                reason: `ModMail thread for ${user.username}`,
+                reason: `ModMail thread for @${user.username}`,
             });
 
-            content = `Please use the command **/reply** to respond, and **/close** to lock the thread.\n\n\n` + content;
+            content = `<@&${process.env.SUPPORT_ROLE_ID}> Please use the command **/reply** to respond, and **/close** to lock the thread.\n\n\n` + content;
         }
 
         if (event.attachments.size > 0) {
