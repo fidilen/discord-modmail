@@ -4,11 +4,11 @@ module.exports = async (interaction, client, utils) => {
     const user = interaction.member.user;
 
     if (!interaction.member.roles?.cache?.find(role => role.id == process.env.SUPPORT_ROLE_ID)) {
-        return interaction.reply({ ephemeral: true, content: `Only members with <@&${process.env.SUPPORT_ROLE_ID}> can use this command.` });
+        return interaction.editReply({ ephemeral: true, content: `Only members with <@&${process.env.SUPPORT_ROLE_ID}> can use this command.` });
     }
 
     if (!interaction.channel.isThread()) {
-        return interaction.reply({ ephemeral: true, content: `Please use this command in a ticket thread.` });
+        return interaction.editReply({ ephemeral: true, content: `Please use this command in a ticket thread.` });
     }
 
     const recipientID = interaction.channel.name?.match(/\d+/g)?.pop();
